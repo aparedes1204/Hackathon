@@ -3,23 +3,25 @@
 <body>
   <section class="main" id="s1">
     <div id = "sign-up" name = "sign-up">
-        <h1>Erregistroa</h1>
+        <h1>Registro</h1>
 
         <form id = "sign-up-form" name = "sign-up-form" enctype = "multipart/form-data" method = "post" action="SignUp.php">
-            <p>Cómo te llamas?</p>
-            <input type="text" id="name" name="name">             
-            <p>Introduce tus apellidos</p>
-            <input type="text" id="surname1" name="surname1">
-            <input type="text" id="surname2" name="surname2">
-            <p>Introduce tu correo electrónico</p>
-            <input type="text" id="email" name="email">
-            <p>Introduce tu teléfono</p>
-            <input type="tel" id="telf" name="telf">
-            <p>Introduce tu contraseña</p>
-            <input type="password" id="password" name="password">
-            <p>Repite tu contraseña</p>
-            <input type="password" id="passwordRep" name="passwordRep">
-            <input type="submit" id="submit" name="submit"  value="Bidali">
+            <p style="margin-bottom: 5px; margin-top: 5px">Cómo te llamas?</p>
+            <input type="text" id="name" name="name" placeholder="Nombre" required>             
+            <input type="text" id="surname1" name="surname1" placeholder="Apellido 1">
+            <input type="text" id="surname2" name="surname2" placeholder="Apellido 2">
+            <p style="margin-bottom: 5px; margin-top: 5px" >Correo electrónico</p>
+            <input type="text" id="email" name="email" placeholder="Correo electrónico" required>
+            <p style="margin-bottom: 5px; margin-top: 5px" >Numero de teléfono</p>
+            <input type="tel" id="telf" name="telf" placeholder="Teléfono">
+            <p style="margin-bottom: 5px; margin-top: 5px">Contraseña</p>
+            <input type="password" id="password" name="password" placeholder="Contraseña" required>
+            <input type="password" id="passwordRep" name="passwordRep" placeholder="Repite la contraseña" required>
+            <p style="margin-top:10px">
+            <label class="botoia" style="width: 30%;">
+              <button type="submit" class="btn btn-primary" id="submit" name="submit" value="Registrarse" style="display: none;"></button>
+              </i>Registrarse</label>
+          </p>
 	</form>
     </div>
     <?php	
@@ -82,7 +84,7 @@
                 die('Las contraseñas no coinciden');
             }
 
-            $stmt = $dbh->prepare("SELECT eposta FROM users WHERE Users.email = ?");
+            $stmt = $dbh->prepare("SELECT email FROM users WHERE Users.email = ?");
             $stmt->bindParam(1,$email);
             $stmt->execute();
             
@@ -103,6 +105,13 @@
             $stmt->execute();
 
             $dbh = null;
+
+            if (!isset($_SESSION)){
+              session_start();
+            }
+
+            $_SESSION['email']=$email;
+            header("Location: index.php");
 
 
             //echo "<script>if(window.confirm('Registrado correctamente. Consulta el correo electrónico para verificar la cuenta')){window.location.href='Layout.php'} </script>";

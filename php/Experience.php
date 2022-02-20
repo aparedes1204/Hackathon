@@ -1,7 +1,22 @@
-<div id="map" style="width: 640px;height:400px" ></div>
-  
-  <script type="text/javascript" src="https://www.geo.euskadi.eus/bisorea/v4/API/ApiGeoEuskadi.js"></script>
-    <script type="text/javascript" id="script">
+<h3 mb-2>AKELARRE GASTRONÓMICO</h3>
+<div class="row align-items-center w-100" style="height:400px">
+    <div class="col">
+        <div id="map" style="width: 40vw; height:400px" ></div>
+    </div>
+    <div class="col">
+      <div style="width: 100%; height: 400px;">
+      <h4>Hola, Iñaki</h4>
+      <h5>Ven a recorrer Gipuzkoa conmigo.</h5> 
+    <p>Empezaremos por visitar Deba, en la costa guipuzcoana. 
+    En la oficina de turismo podrás leer un QR que te ayudará a llegar al lugar secreto donde se rodó la película
+    <p>Continuaremos hacia Getaria y en la oficina de turismo encontrarás el QR que te llevará a una degustación de Txakoli, antes de ir a comer por la zona.</p>
+   <p> A la tarde podrás visitar el Museo de la sidra en Astigarraga y disfrutar de una cena en alguno de las sidrerías de la zona</p>
+   <p> Y, recuerda que si realizas todo el circuito participaras en un sorteo en el restaurante Akelarre de san Sebastián, para la siguiente visita.</p> 
+</div>
+  </div>
+
+  <script type="text/javascript" src="https://www.geo.euskadi.eus/bisorea/v4/API/ApiGeoEuskadi.js" id="script1"></script>
+    <script type="text/javascript" id="script2">
         
         // Funcion de arranque de la aplicacion
         function loadApp(markers,doneactivities) {
@@ -44,7 +59,13 @@
 <?php
 //['563602.501','4793883.713']
     $markers = array("1"=>['564594.813','4794788.074'], "2"=>['552432.035','4793701.359'], "3"=>['564594.813','4794788.074'], "4"=>['585330.088', '4792626.998'], "5"=>['585330.088', '4792626.998']);
-    //if($_SESSION['email']!=""){
+    if(!isset($_SESSION)){
+        session_start();
+    }
+    if(isset($_SESSION['email'])){
+        $email = $_SESSION['email'];
+    }
+    //if($_SESSION['email']!=""){}
         include "DbConfig.php";
     try{
         $dsn = "mysql:host=$server;dbname=$db";
@@ -71,17 +92,19 @@
 
     $doneActivities = array();
 
-    array_push($doneActivities,$stmt->fetch()["activityID"]);
-    array_push($doneActivities,$stmt->fetch()["activityID"]);
-    array_push($doneActivities,$stmt->fetch()["activityID"]);
-    array_push($doneActivities,$stmt->fetch()["activityID"]);
-    array_push($doneActivities,$stmt->fetch()["activityID"]);
+    for($i = 0;$i<5;$i++){
+        array_push($doneActivities,$stmt->fetch()["activityID"]);
+        array_push($doneActivities,$stmt->fetch()["activityID"]);
+        array_push($doneActivities,$stmt->fetch()["activityID"]);
+        array_push($doneActivities,$stmt->fetch()["activityID"]);
+        array_push($doneActivities,$stmt->fetch()["activityID"]);
+    }
     
  
 
-    echo "<script>loadApp(".json_encode($markers).",".json_encode($doneActivities).")</script>";
+    echo "<script id='script3'>loadApp(".json_encode($markers).",".json_encode($doneActivities).")</script>";
     }else{
         $doneActivities = array();
-        echo "<script>loadApp(".json_encode($markers).",".json_encode($doneActivities).")</script>";
+        echo "<script id='script3'>loadApp(".json_encode($markers).",".json_encode($doneActivities).")</script>";
     }
 ?>

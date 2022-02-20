@@ -1,9 +1,10 @@
-@import url('https://fonts.googleapis.com/css?family=Roboto');
+/*@import url('https://fonts.googleapis.com/css?family=Roboto');
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:600);
-@import url('https://fonts.googleapis.com/css2?family=Georama&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Georama&display=swap');*/
+@import url('https://fonts.googleapis.com/css?family=Raleway');
 
 body {
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Raleway' !important;
   margin: 0;
   padding: 0;
   overflow: hidden;
@@ -90,7 +91,7 @@ i {
   right: 20px;
   top: 10px;
   font-size: 14px;
-  font-family: "Font Awesome 5 Free";
+  font-family: 'Raleway' !important;
   display: inline-block;
   padding-right: 3px;
   vertical-align: middle;
@@ -201,6 +202,23 @@ i {
   }
 } 
 
+.botoia{
+
+  font-size: 1.5vw;
+    font-weight: 600;
+    color: #2E9CCA;
+    cursor: pointer;
+
+    padding-top: 5px;
+    height: 3vw;
+    text-align:center;
+    border: none;
+    background-size: 300% 100%;
+    background-color: white;
+    border-radius: 10px;
+    margin: 5px;
+}
+
 .btn-hover {
     font-size: 1.5vw;
     font-weight: 600;
@@ -213,7 +231,7 @@ i {
     border: none;
     background-size: 300% 100%;
 
-    border-radius: 50px;
+    border-radius: 10px;
     moz-transition: all .4s ease-in-out;
     -o-transition: all .4s ease-in-out;
     -webkit-transition: all .4s ease-in-out;
@@ -311,4 +329,10 @@ i {
 
 .img__wrap:hover .img__description {
   transform: translateY(0);
+}
+
+/*Botoi zurian hover egiterakoan honen kolorea aldatu*/
+.botoia:hover {
+	background-color: #2E9CCA;
+  	color: white;
 }

@@ -1,7 +1,7 @@
 <!-- Nabigazio Barra -->
 <nav class="navbar navbar-expand-custom navbar-mainbg">
-            <img src="https://emojigraph.org/media/facebook/white-question-mark_2754.png" alt="logo" height="65" style="margin-left: 15px; position: absolute;">
-            <a class="navbar-brand navbar-logo" href="../php/index.php" style="margin-left:120px">GURE IZENA</a>
+      <img class="d-none d-lg-block" src="../img/logo2.png" alt="logo" height="65" style="margin-left: 15px; position: absolute;">
+            <img class="d-lg-none" src="../img/logo1.png" alt="logo" height="65" style="margin-left: 15px;">
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <i class="fas fa-bars fa-fw fa-3x text-white"></i>
             </button>
@@ -23,14 +23,32 @@
                      <a class="nav-link" href="javascript:void(0);" onclick="info();">
                      <i class="fas fa-bookmark"></i>Info. práctica</a>
                   </li>
+                  <?php
+                     if (!isset($_SESSION)){
+                           session_start();
+                     }
+                     if (isset($_SESSION["email"])){
+                        echo "  <li class='nav-item'>
+                        <a class='nav-link' href='javascript:void(0);' onclick='perfil()'>
+                        <i class='fas fa-address-card'></i>".$_SESSION["email"]."</a>
+                     </li> <li class='nav-item'>
+                     <a class='nav-link' href='javascript:void(0);' onclick='logout()'>
+                     <i class='fas fa-sign-out-alt'></i> Log Out</a>
+                  </li>";
+                     } else {
+
+                  ?>
                   <li class="nav-item">
-                     <a class="nav-link" href="javascript:void(0);" onclick="reviews();">
-                     <i class="fas fa-edit"></i>Reseñas</a>
+                     <a class="nav-link" href="javascript:void(0);" onclick="signup();">
+                     <i class="fas fa-edit"></i>Registrarse</a>
                   </li>
                   <li class="nav-item">
                      <a class="nav-link" href="javascript:void(0);" onclick="login();">
-                     <i class="fa fa-arrow-up"></i>Log In</a>
+                     <i class="fa fa-sign-in-alt"></i>Log In</a>
                   </li>
+                  <?php
+                     }
+                  ?>
                </ul>
             </div>
          </nav>

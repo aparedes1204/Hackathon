@@ -8,7 +8,7 @@ $month = $datetime->format('m');
 $day = $datetime->format('d');
 
 
-$link = "https://api.euskadi.eus/culture/events/v1.0/events/byDate/" . $year . "/" . $month . "/" . $day . "/byMunicipality/20/" . $_POST["id"] . "?_elements=3&_page=1";
+$link = "https://api.euskadi.eus/culture/events/v1.0/events/byDate/" . $year . "/" . $month . "/" . $day . "/byMunicipality/20/" . $_POST["id"] . "?_elements=4&_page=1";
 
 //Rest bezeroa
  $ch = curl_init($link); 
@@ -29,11 +29,11 @@ $link = "https://api.euskadi.eus/culture/events/v1.0/events/byDate/" . $year . "
                     <div class='row no-gutters'>";
                     if (isset($i["images"][0])){
                         echo "<div class='col-auto'>
-                            <img class='card-img' id='image' src='".$i["images"][0]["imageUrl"]."' alt='Suresh Dasari Card' style='object-fit: cover; height: 200px'>
+                            <img class='card-img' id='image' src='".$i["images"][0]["imageUrl"]."' alt='Suresh Dasari Card' style='object-fit: cover; height: 100px'>
                         </div>";
                     } else {
                         echo "<div class='col-auto'>
-                            <img class='card-img' id='image' src='../img/Evento.jpg' alt='Suresh Dasari Card' style='object-fit: cover; height: 200px; width: 300px'>
+                            <img class='card-img' id='image' src='../img/Evento.jpg' alt='Suresh Dasari Card' style='object-fit: cover; height: 100px; width: 150px'>
                         </div>";
                     }
                     echo"

@@ -1,10 +1,10 @@
 <?php
-    if ($_SERVER['REQUEST_METHOD'] == 'POST'){
+    if ($_SERVER['REQUEST_METHOD'] == 'GET'){
         if (!isset($_SESSION)){
             session_start();
         }
         include "DbConfig.php";
-        $experienceID = $_POST['experienceID'];
+        $experienceID = $_GET['experienceID'];
         $email = $_SESSION['email'];
 
 
@@ -32,12 +32,18 @@
           $stmt->bindParam(3,$date);
           $stmt->bindParam(4,$rating);
 
+          
           $stmt->execute();
           $response = [
-            'correct' => true
+              'correct' => true
             ];
             echo json_encode($response);
+            ////////////////
+            
+            header('Location: AddCompletedActivity.php?activityID=1');
 
+            ////////////////
+            
     } else {
         header('Location: index.php');
     }

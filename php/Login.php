@@ -14,11 +14,19 @@
     <div id = "log-in" name = "log-in">
         <h1>Iniciar sesión</h1>
 
-        <form id = "log-in-form" name = "log-in-form" method = "post" action="Login.php">
-            <p>Email (*):<input type="text" id="email" name="email"><p>
-            <p>Contraseña (*):<input type="password" id="password" name="password"><p>
-            <input type="button" id="empty" name="empty" value="Vaciar" onclick="reset()">
-            <input type="submit" id="submit" name="submit" value="Iniciar sesión">
+        <form id = "log-in-form" class="align-items-center" name = "log-in-form" method = "post" action="Login.php">
+
+            <p>Email (*):<input type="text" id="email" name="email" style="margin-left:50px" required><p>
+            <p>Contraseña (*):<input type="password" id="password" name="password" style="margin-left:10px"><p>
+
+            <label class="botoia" style="width: 40%;">
+              <button type="submit" class="btn btn-primary" id="submit" name="submit" value="Iniciar sesión" style="display: none;"></button>
+              </i>Iniciar sesión</label></br>
+
+            <label class="botoia" style="width: 30%;">
+              <button type="button" class="btn btn-primary" id="empty" name="empty" value="Vaciar" onclick="reset()" style="display: none;"></button>
+              </i>Vaciar</label>
+
         </form>
     </div>
 
@@ -57,7 +65,11 @@
             if (!hash_equals($strResult, crypt($password, $strResult))){
                 die("Contraseña o usuario incorrectos");
             }
-            echo("todo bien");
+            if (!isset($_SESSION)){
+                session_start();
+            }
+            $_SESSION['email'] = $email;
+            header("Location: index.php");
         }
     ?>
 

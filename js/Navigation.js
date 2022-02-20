@@ -11,15 +11,17 @@ function login(){
 	var akelarre = document.getElementById("akelarre");
 	var info = document.getElementById("info");
 	var maria = document.getElementById("maria");
+	var signup = document.getElementById("signup");
 	//Ezkutatu beste atala
 	home.style.marginTop = "-5000px";
     gipuzkoa.style.marginTop = "-5000px";
 	akelarre.style.marginTop = "-5000px";
 	info.style.marginTop = "-5000px";
 	maria.style.marginTop = "-5000px";
+	signup.style.marginTop = "-5000px"
 	//Estatistikak atala atzitu Ajax bidez
 	$.ajax({
-		method: 'POST',
+		method: 'GET',
 		url: 'Login.php',
 		data: "",
 		cache : false,
@@ -37,6 +39,78 @@ function login(){
 	});
 }
 
+function logout(){
+	//Atzitu bi atalak
+	var home = document.getElementById("home");
+    var login = document.getElementById("login");
+	var gipuzkoa = document.getElementById("gipuzkoa");
+	var akelarre = document.getElementById("akelarre");
+	var info = document.getElementById("info");
+	var maria = document.getElementById("maria");
+	var signup = document.getElementById("signup");
+	//Ezkutatu beste atala
+	home.style.marginTop = "-5000px";
+    gipuzkoa.style.marginTop = "-5000px";
+	akelarre.style.marginTop = "-5000px";
+	info.style.marginTop = "-5000px";
+	maria.style.marginTop = "-5000px";
+	signup.style.marginTop = "-5000px"
+	//Estatistikak atala atzitu Ajax bidez
+	$.ajax({
+		method: 'GET',
+		url: 'Logout.php',
+		data: "",
+		cache : false,
+
+	    success: function(mezua) {
+			window.location.href = "index.php";
+	    	//Jasotako balioa txertatu atalean
+	    	//Erakutsi atala
+	    	//login.style.marginTop = "30px";
+	    	
+	    },
+	    error: function(){
+			alert("Arazo bat egon da Ajax erantzunean");
+		}
+	});
+}
+
+function signup(){
+	//Atzitu bi atalak
+	var home = document.getElementById("home");
+    var login = document.getElementById("login");
+	var signup = document.getElementById("signup");
+	var gipuzkoa = document.getElementById("gipuzkoa");
+	var akelarre = document.getElementById("akelarre");
+	var info = document.getElementById("info");
+	var maria = document.getElementById("maria");
+	//Ezkutatu beste atala
+	home.style.marginTop = "-5000px";
+    gipuzkoa.style.marginTop = "-5000px";
+	akelarre.style.marginTop = "-5000px";
+	info.style.marginTop = "-5000px";
+	maria.style.marginTop = "-5000px";
+	login.style.marginTop = "-5000px";
+	//Estatistikak atala atzitu Ajax bidez
+	$.ajax({
+		method: 'GET',
+		url: 'SignUp.php',
+		data: "",
+		cache : false,
+
+	    success: function(mezua) {
+	    	//Jasotako balioa txertatu atalean
+	    	signup.innerHTML = mezua;
+	    	//Erakutsi atala
+	    	signup.style.marginTop = "30px";
+	    	
+	    },
+	    error: function(){
+			alert("Arazo bat egon da Ajax erantzunean");
+		}
+	});
+}
+
 //Gipuzkoa orrialdea erakusteko
 function gipuzkoa(){
 	//Atzitu bi atalak
@@ -46,12 +120,14 @@ function gipuzkoa(){
 	var akelarre = document.getElementById("akelarre");
 	var info = document.getElementById("info");
 	var maria = document.getElementById("maria");
+	var signup = document.getElementById("signup");
 	//Ezkutatu beste atala
 	home.style.marginTop = "-5000px";
     login.style.marginTop = "-5000px";
 	akelarre.style.marginTop = "-5000px";
 	info.style.marginTop = "-5000px";
 	maria.style.marginTop = "-5000px";
+	signup.style.marginTop = "-5000px"
 	//Estatistikak atala atzitu Ajax bidez
 	$.ajax({
 		method: 'POST',
@@ -82,8 +158,10 @@ function akelarre(){
 	var login = document.getElementById("login");
 	var info = document.getElementById("info");
 	var maria = document.getElementById("maria");
+	var signup = document.getElementById("signup");
 
 	//Ezkutatu beste atala
+	signup.style.marginTop = "-5000px";
 	home.style.marginTop = "-5000px";
     login.style.marginTop = "-5000px";
 	gipuzkoa.style.marginTop = "-5000px";
@@ -118,8 +196,9 @@ function maria(){
 	var login = document.getElementById("login");
 	var info = document.getElementById("info");
 	var maria = document.getElementById("maria");
-
+	var signup = document.getElementById("signup");
 	//Ezkutatu beste atala
+	signup.style.marginTop = "-5000px";
 	home.style.marginTop = "-5000px";
     login.style.marginTop = "-5000px";
 	gipuzkoa.style.marginTop = "-5000px";
@@ -135,8 +214,11 @@ function maria(){
 
 	    success: function(mezua) {
 	    	//Jasotako balioa txertatu atalean
-	    	//maria.innerHTML = mezua
-	    	//Erakutsi atala
+	    	maria.innerHTML = mezua
+	    	//Erakutsi atala9
+			eval(document.getElementById("script1").innerHTML)
+			eval(document.getElementById("script2").innerHTML)
+			eval(document.getElementById("script3").innerHTML)
 	    	maria.style.marginTop = "30px";
 	    	
 	    },
@@ -155,7 +237,9 @@ function home(){
 	var akelarre = document.getElementById("akelarre");
 	var info = document.getElementById("info");
 	var maria = document.getElementById("maria");
+	var signup = document.getElementById("signup");
 	//Ezkutatu beste atala
+	signup.style.marginTop = "-5000px";
 	gipuzkoa.style.marginTop = "-5000px";
     login.style.marginTop = "-5000px";
 	akelarre.style.marginTop = "-5000px";
@@ -191,7 +275,9 @@ function info(){
 	var akelarre = document.getElementById("akelarre");
 	var info = document.getElementById("info");
 	var maria = document.getElementById("maria");
+	var signup = document.getElementById("signup");
 	//Ezkutatu beste atala
+	signup.style.marginTop = "-5000px";
 	gipuzkoa.style.marginTop = "-5000px";
     login.style.marginTop = "-5000px";
 	akelarre.style.marginTop = "-5000px";
