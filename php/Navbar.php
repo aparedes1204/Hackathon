@@ -16,10 +16,6 @@
                      <i class="fa fa-home"></i>Home</a>
                   </li>
                   <li class="nav-item">
-                     <a class="nav-link" href="javascript:void(0);" onclick="whatToDo();">
-                     <i class="fa fa-arrow-up"></i>Que hacer</a>
-                  </li>
-                  <li class="nav-item">
                      <a class="nav-link" href="javascript:void(0);" onclick="gipuzkoa();">
                      <i class="fas fa-film"></i>Gipuzkoa de cine</a>
                   </li>
@@ -30,6 +26,10 @@
                   <li class="nav-item">
                      <a class="nav-link" href="javascript:void(0);" onclick="reviews();">
                      <i class="fas fa-edit"></i>Reseñas</a>
+                  </li>
+                  <li class="nav-item">
+                     <a class="nav-link" href="javascript:void(0);" onclick="login();">
+                     <i class="fa fa-arrow-up"></i>Log In</a>
                   </li>
                </ul>
             </div>

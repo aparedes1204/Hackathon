@@ -3,10 +3,10 @@ $( document ).ready(function() {
 });
 
 //Egitekoak orrialdea erakusteko
-function whatToDo(){
+function login(){
 	//Atzitu bi atalak
 	var home = document.getElementById("home");
-    var what = document.getElementById("what");
+    var login = document.getElementById("login");
 	var gipuzkoa = document.getElementById("gipuzkoa");
 	var akelarre = document.getElementById("akelarre");
 	var info = document.getElementById("info");
@@ -20,15 +20,15 @@ function whatToDo(){
 	//Estatistikak atala atzitu Ajax bidez
 	$.ajax({
 		method: 'POST',
-		url: 'WhatToDo.php',
+		url: 'Login.php',
 		data: "",
 		cache : false,
 
 	    success: function(mezua) {
 	    	//Jasotako balioa txertatu atalean
-	    	what.innerHTML = mezua;
+	    	login.innerHTML = mezua;
 	    	//Erakutsi atala
-	    	what.style.marginTop = "30px";
+	    	login.style.marginTop = "30px";
 	    	
 	    },
 	    error: function(){
@@ -41,14 +41,14 @@ function whatToDo(){
 function gipuzkoa(){
 	//Atzitu bi atalak
 	var home = document.getElementById("home");
-    var what = document.getElementById("what");
+    var login = document.getElementById("login");
 	var gipuzkoa = document.getElementById("gipuzkoa");
 	var akelarre = document.getElementById("akelarre");
 	var info = document.getElementById("info");
 	var maria = document.getElementById("maria");
 	//Ezkutatu beste atala
 	home.style.marginTop = "-5000px";
-    what.style.marginTop = "-5000px";
+    login.style.marginTop = "-5000px";
 	akelarre.style.marginTop = "-5000px";
 	info.style.marginTop = "-5000px";
 	maria.style.marginTop = "-5000px";
@@ -79,13 +79,13 @@ function akelarre(){
 	var home = document.getElementById("home");
     var akelarre = document.getElementById("akelarre");
 	var gipuzkoa = document.getElementById("gipuzkoa");
-	var what = document.getElementById("what");
+	var login = document.getElementById("login");
 	var info = document.getElementById("info");
 	var maria = document.getElementById("maria");
 
 	//Ezkutatu beste atala
 	home.style.marginTop = "-5000px";
-    what.style.marginTop = "-5000px";
+    login.style.marginTop = "-5000px";
 	gipuzkoa.style.marginTop = "-5000px";
 	info.style.marginTop = "-5000px";
 	maria.style.marginTop = "-5000px";
@@ -115,13 +115,13 @@ function maria(){
 	var home = document.getElementById("home");
     var akelarre = document.getElementById("akelarre");
 	var gipuzkoa = document.getElementById("gipuzkoa");
-	var what = document.getElementById("what");
+	var login = document.getElementById("login");
 	var info = document.getElementById("info");
 	var maria = document.getElementById("maria");
 
 	//Ezkutatu beste atala
 	home.style.marginTop = "-5000px";
-    what.style.marginTop = "-5000px";
+    login.style.marginTop = "-5000px";
 	gipuzkoa.style.marginTop = "-5000px";
 	info.style.marginTop = "-5000px";
 	akelarre.style.marginTop = "-5000px";
@@ -130,17 +130,12 @@ function maria(){
 		method: 'POST',
 		url: '../php/Experience.php',
 		data: "",
-		dataType: "text",
+		dataType: "script",
 		cache : false,
 
 	    success: function(mezua) {
 	    	//Jasotako balioa txertatu atalean
-	    	maria.innerHTML = mezua
-			alert(mezua)
-			maria.findElementById("script").each(function(){
-				alert("ok")
-				eval(document.getElementById('script').innerHTML)
-			  });
+	    	//maria.innerHTML = mezua
 	    	//Erakutsi atala
 	    	maria.style.marginTop = "30px";
 	    	
@@ -155,14 +150,14 @@ function maria(){
 function home(){
 	//Atzitu bi atalak
 	var home = document.getElementById("home");
-    var what = document.getElementById("what");
+    var login = document.getElementById("login");
 	var gipuzkoa = document.getElementById("gipuzkoa");
 	var akelarre = document.getElementById("akelarre");
 	var info = document.getElementById("info");
 	var maria = document.getElementById("maria");
 	//Ezkutatu beste atala
 	gipuzkoa.style.marginTop = "-5000px";
-    what.style.marginTop = "-5000px";
+    login.style.marginTop = "-5000px";
 	akelarre.style.marginTop = "-5000px";
 	info.style.marginTop = "-5000px";
 	maria.style.marginTop = "-5000px";
@@ -191,14 +186,14 @@ function home(){
 function info(){
 	//Atzitu bi atalak
 	var home = document.getElementById("home");
-    var what = document.getElementById("what");
+    var login = document.getElementById("login");
 	var gipuzkoa = document.getElementById("gipuzkoa");
 	var akelarre = document.getElementById("akelarre");
 	var info = document.getElementById("info");
 	var maria = document.getElementById("maria");
 	//Ezkutatu beste atala
 	gipuzkoa.style.marginTop = "-5000px";
-    what.style.marginTop = "-5000px";
+    login.style.marginTop = "-5000px";
 	akelarre.style.marginTop = "-5000px";
 	home.style.marginTop = "-5000px";
 	info.style.marginTop = "-5000px";

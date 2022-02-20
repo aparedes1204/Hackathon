@@ -2,7 +2,7 @@
   
   <script type="text/javascript" src="https://www.geo.euskadi.eus/bisorea/v4/API/ApiGeoEuskadi.js"></script>
     <script type="text/javascript" id="script">
-
+        
         // Funcion de arranque de la aplicacion
         function loadApp(markers,doneactivities) {
             loadAPIGeoEuskadi(

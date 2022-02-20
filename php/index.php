@@ -13,7 +13,7 @@
          <main class="flex-fill">
 
             <div class="content" id="home" style="transition: 1s; ">Hasiera</div>
-            <div class="content" id="what" style="transition: 1s; margin-top: -1000px; ">Que hacer</div>
+            <div class="content" id="login" style="transition: 1s; margin-top: -1000px; ">Login</div>
             <div class="content" id="gipuzkoa" style="transition: 1s; margin-top: -1000px; ">Gipuzkoa</div>
             <div class="content" id="akelarre" style="transition: 1s; margin-top: -1000px; ">Akelarre</div>
             <div class="content" id="info" style="transition: 1s; margin-top: -1000px; ">Info</div>
